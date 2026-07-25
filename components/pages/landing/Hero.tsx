@@ -22,7 +22,7 @@ function Hero() {
             />
           </div>
           <div>
-            <Button>Take the quiz - 2 mins</Button>
+            <Button size={"lg"}>Take the quiz - 2 mins</Button>
           </div>
         </div>
         <div className="flex-1">
