@@ -8,7 +8,7 @@ function Paragraph({
   readonly text: string;
   readonly className?: string;
 }) {
-  return <p className={cn("text-base sm:text-lg 2xl:text-xl leading-snug", className)}>{text}</p>;
+  return <p className={cn("text-base lg:text-lg 2xl:text-xl leading-snug", className)}>{text}</p>;
 }
 
 export default Paragraph

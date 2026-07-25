@@ -9,11 +9,11 @@ import React from "react";
 function Hero() {
   return (
     <LandingContainer className="lg:h-[90vh]">
-      <div className="h-full flex flex-col lg:flex-row items-center justify-center">
+      <div className="h-full flex flex-col lg:flex-row gap-6 items-center justify-center">
         <div className="flex-1 flex flex-col gap-4">
           <div>
-            <Header1 text="Some places are for you." />
-            <Header1 text="Most places" spanText="aren't." />
+            <Header1 text="Some places are for you."  className="whitespace-nowrap"/>
+            <Header1 text="Most places" spanText="aren't." className="whitespace-nowrap" />
           </div>
           <div>
             <Paragraph
@@ -26,8 +26,8 @@ function Hero() {
           </div>
         </div>
         <div className="flex-1">
-          <div className="size-[80vw] lg:size-150 rounded-full bg-accent flex items-center justify-center">
-            <div className="max-w-[80vw] lg:max-w-150">
+          <div className="size-[70vw] lg:size-[40vw] rounded-full bg-accent flex items-center justify-center">
+            <div className="max-w-[70vw] lg:max-w-[40vw]">
               <Image
                 src={HeroImage}
                 alt="two people on a trip"

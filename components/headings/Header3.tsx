@@ -8,7 +8,7 @@ function Header3({
   readonly text: string;
   readonly className?: string;
 }) {
-  return <h3 className={cn("text-4xl leading-none", className)}>{text}</h3>;
+  return <h3 className={cn("text-3xl lg:text-4xl 2xl:text-5xl leading-none", className)}>{text}</h3>;
 }
 
 export default Header3
