@@ -4,6 +4,7 @@ import Paragraph from "@/components/headings/Paragraph";
 import { Button } from "@/components/ui/button";
 import HeroImage from "@/public/images/hero.svg";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Hero() {
@@ -12,8 +13,15 @@ function Hero() {
       <div className="h-full flex flex-col lg:flex-row gap-6 items-center justify-center">
         <div className="flex-1 flex flex-col gap-4">
           <div>
-            <Header1 text="Some places are for you."  className="whitespace-nowrap"/>
-            <Header1 text="Most places" spanText="aren't." className="whitespace-nowrap" />
+            <Header1
+              text="Some places are for you."
+              className="whitespace-nowrap"
+            />
+            <Header1
+              text="Most places"
+              spanText="aren't."
+              className="whitespace-nowrap"
+            />
           </div>
           <div>
             <Paragraph
@@ -22,7 +30,9 @@ function Hero() {
             />
           </div>
           <div>
-            <Button size={"lg"}>Take the quiz - 2 mins</Button>
+            <Link href="/quiz">
+              <Button size={"lg"}>Take the quiz - 2 mins</Button>
+            </Link>
           </div>
         </div>
         <div className="flex-1">

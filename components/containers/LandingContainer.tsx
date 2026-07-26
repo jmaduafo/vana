@@ -8,7 +8,7 @@ function LandingContainer({
   readonly children: React.ReactNode;
   readonly className?: string;
 }) {
-  return <section className={cn("px-[8vw] py-10", className)}>{children}</section>;
+  return <section className={cn("px-[8vw] py-[9vh]", className)}>{children}</section>;
 }
 
 export default LandingContainer;
