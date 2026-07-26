@@ -1,7 +1,7 @@
 import { AXES, AXIS_LABELS, VibeVector } from "@/lib/types";
 import { toChartScale } from "@/lib/scoring";
 
-const SIZE = 340;
+const SIZE = 380;
 const CENTER = SIZE / 2;
 const RADIUS = 118;
 const RINGS = [0.2, 0.4, 0.6, 0.8, 1];

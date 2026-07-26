@@ -10,7 +10,7 @@ function Header1({
   readonly spanText?: string;
   readonly className?: string;
 }) {
-  return <h1 className={cn("font-serif text-5xl lg:text-6xl 2xl:text-7xl leading-none", className)}>{text} <span className="font-serif-italic">{spanText}</span></h1>
+  return <h1 className={cn("font-serif text-4xl lg:text-5xl 2xl:text-6xl leading-none", className)}>{text} <span className="font-serif-italic">{spanText}</span></h1>
 }
 
 export default Header1;

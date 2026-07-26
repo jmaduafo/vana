@@ -1,5 +1,5 @@
 import { QUIZ_QUESTIONS } from "./quiz-data";
-import { AXES, Axis, VibeVector } from "./types";
+import { AXES, Axis, AxisRange, VibeVector } from "./types";
 
 /**
  * For each axis, the best-case magnitude a fully-committed answer set could
@@ -42,6 +42,49 @@ export function computeVibeVector(answers: number[]): VibeVector {
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
+}
+
+/**
+ * The actual achievable normalized range per axis, given the current quiz
+ * data. Not every axis can reach a full -1 or 1 — the option deltas aren't
+ * perfectly symmetric, so e.g. the "loyal" end of Wander Index tops out well
+ * short of -1 while the "restless" end can hit a full 1. Progress bars use
+ * this range instead of a flat -1..1 assumption, otherwise a maxed-out
+ * answer on a skewed axis would visually stop short of the end of the bar.
+ */
+export function axisRanges(): Record<Axis, AxisRange> {
+  const magnitudes = maxAxisMagnitudes();
+  const ranges = {} as Record<Axis, AxisRange>;
+
+  for (const axis of AXES) {
+    let rawMax = 0;
+    let rawMin = 0;
+    for (const question of QUIZ_QUESTIONS) {
+      const deltas = question.options.map((o) => o.deltas[axis] ?? 0);
+      rawMax += Math.max(...deltas);
+      rawMin += Math.min(...deltas);
+    }
+    const magnitude = magnitudes[axis];
+    ranges[axis] = {
+      min: magnitude === 0 ? 0 : rawMin / magnitude,
+      max: magnitude === 0 ? 0 : rawMax / magnitude,
+    };
+  }
+
+  return ranges;
+}
+
+// Computed once at module load — the quiz data is static.
+export const AXIS_RANGES = axisRanges();
+
+/**
+ * Maps a vibe vector value to a 0..100 position on a progress bar, scaled to
+ * that specific axis's real achievable range rather than a flat -1..1.
+ */
+export function toBarPercent(axis: Axis, value: number): number {
+  const { min, max } = AXIS_RANGES[axis];
+  if (max === min) return 50;
+  return clamp(((value - min) / (max - min)) * 100, 0, 100);
 }
 
 /** Maps a -1..1 vibe vector value to a 0..10 display scale for the radar chart. */
