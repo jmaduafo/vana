@@ -1,24 +1,32 @@
 import { Spot } from "@/lib/types";
+import Header4 from "../headings/Header4";
+import SmallParagraph from "../headings/SmallParagraph";
+import Paragraph from "../headings/Paragraph";
+import { Badge } from "../ui/badge";
 
-export default function SpotCard({ spot, index }: { readonly spot: Spot; readonly index: number }) {
+export default function SpotCard({
+  spot,
+  index,
+}: {
+  readonly spot: Spot;
+  readonly index: number;
+}) {
   return (
-    <div className="relative border border-ink-soft/20 bg-paper rounded-md p-6 flex flex-col gap-3">
+    <div className="relative border border-foreground/10 rounded-md p-6 flex flex-col gap-3">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-display text-xl leading-tight text-ink">{spot.name}</h3>
-        <span className="shrink-0 font-mono text-[10px] tracking-widest uppercase text-brass border border-brass/40 rounded-full px-2 py-1">
-          {spot.category}
-        </span>
+        <Header4 text={spot.name} />
+        <Badge variant={"outline"}>{spot.category}</Badge>
       </div>
       {spot.neighborhood ? (
-        <p className="font-mono text-[11px] tracking-widest uppercase text-ink-soft/50">{spot.neighborhood}</p>
+        <SmallParagraph className="-mt-2 text-xs" text={`${spot.neighborhood}`} />
       ) : null}
-      <p className="text-[15px] leading-relaxed text-ink-soft">{spot.description}</p>
-      <div className="mt-auto pt-3 border-t border-ink-soft/10">
-        <p className="text-[13px] leading-relaxed text-moss-dark italic">{spot.whyItFits}</p>
+      <Paragraph text={spot.description} />
+      <div className="mt-auto pt-3 border-t border-t-foreground/10">
+        <SmallParagraph className="italic" text={spot.whyItFits} />
       </div>
-      <span className="absolute -top-2 -left-2 font-mono text-[10px] text-paper bg-ink-soft/70 rounded-full w-5 h-5 flex items-center justify-center">
-        {index + 1}
-      </span>
+      <div className="absolute -top-2 -left-2 bg-accent/90 rounded-full size-6 flex items-center justify-center">
+        <SmallParagraph text={`${index + 1}`} />
+      </div>
     </div>
   );
 }

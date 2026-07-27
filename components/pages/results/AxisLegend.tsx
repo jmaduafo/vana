@@ -10,6 +10,8 @@ function readingFor(axis: keyof typeof AXIS_LABELS, value: number) {
   const strength = Math.abs(value) > 0.6 ? "Strongly" : "More";
   const direction = value > 0 ? high : low;
 
+  console.log(value);
+
   return `${strength} ${direction.toLowerCase()}`;
 }
 

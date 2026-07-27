@@ -101,7 +101,7 @@ export default function QuizPage() {
     <main className="min-h-screen bg-paper">
       <div className="max-w-xl mx-auto px-6 py-16 sm:py-24">
         <div className="mb-10">
-          <Progress value={(step + 1 / TOTAL_STEPS) * 100} />
+          <Progress value={((step + 1) / TOTAL_STEPS)  * 100} />
         </div>
 
         {currentQuestion ? (

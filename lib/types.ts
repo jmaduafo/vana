@@ -59,6 +59,7 @@ export interface Archetype {
   tagline: string;
   description: string;
   vector: VibeVector;
+  image: string;
 }
 
 export interface Spot {
