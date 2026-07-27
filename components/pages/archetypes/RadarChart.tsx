@@ -62,7 +62,7 @@ export default function RadarChart({ vector }: { readonly vector: VibeVector }) 
                 y={labelPoint.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                className="fill-ink-soft font-mono"
+                className=""
                 style={{ fontSize: 10, letterSpacing: "0.06em", textTransform: "uppercase" }}
               >
                 {name}

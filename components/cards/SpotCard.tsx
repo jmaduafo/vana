@@ -24,7 +24,7 @@ export default function SpotCard({
       <div className="mt-auto pt-3 border-t border-t-foreground/10">
         <SmallParagraph className="italic" text={spot.whyItFits} />
       </div>
-      <div className="absolute -top-2 -left-2 bg-accent/90 rounded-full size-6 flex items-center justify-center">
+      <div className="absolute -top-2 -left-2 bg-accent/90 text-background rounded-full size-6 flex items-center justify-center">
         <SmallParagraph text={`${index + 1}`} />
       </div>
     </div>

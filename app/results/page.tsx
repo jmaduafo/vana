@@ -73,8 +73,7 @@ export default function ResultsPage() {
 
   return (
     <div>
-      <Navbar />
-      <main className="min-h-screen max-w-4xl mx-auto px-8">
+      <main className="min-h-screen max-w-4xl 2xl:max-w-7xl mx-auto px-8">
         {/* Specimen header */}
         <section className="">
           <div className="py-16 sm:py-20">
@@ -105,7 +104,7 @@ export default function ResultsPage() {
                   <div className="size-6 rounded-full bg-foreground text-background flex justify-center items-center">
                     <CircleQuestionMark className="size-4" strokeWidth={2} />
                   </div>
-                  <SmallParagraph className="flex-1" text={archetype.description} />
+                  <SmallParagraph className="flex-1 text-sm 2xl:text-base" text={archetype.description} />
                 </div>
               </div>
               <RadarChart vector={vector} />
