@@ -13,7 +13,6 @@ import AxisLegend from "@/components/pages/results/AxisLegend";
 import Header2 from "@/components/headings/Header2";
 import { Spinner } from "@/components/ui/spinner";
 import Header6 from "@/components/headings/Header6";
-import Navbar from "@/components/navbar/Navbar";
 import SmallParagraph from "@/components/headings/SmallParagraph";
 import Image from "next/image";
 import { CircleQuestionMark } from "lucide-react";
@@ -124,7 +123,7 @@ export default function ResultsPage() {
         {/* Spots */}
         <section className="py-16">
           <div className="flex flex-col gap-2 mb-8">
-            <Badge variant={"outline"}>Field Notes</Badge>
+            <Badge variant={"outline"}>Field notes</Badge>
             <Header2 text="Spots picked for you" />
           </div>
 
