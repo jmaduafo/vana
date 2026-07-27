@@ -15,7 +15,7 @@ import { Spinner } from "@/components/ui/spinner";
 import Header6 from "@/components/headings/Header6";
 import SmallParagraph from "@/components/headings/SmallParagraph";
 import Image from "next/image";
-import { CircleQuestionMark } from "lucide-react";
+import { ArrowLeft, CircleQuestionMark } from "lucide-react";
 
 interface StoredResults {
   vector: VibeVector;
@@ -73,9 +73,18 @@ export default function ResultsPage() {
   return (
     <div>
       <main className="min-h-screen max-w-4xl 2xl:max-w-7xl mx-auto px-8">
-        {/* Specimen header */}
-        <section className="">
-          <div className="py-16 sm:py-20">
+        <Link href={"/"}>
+          <Button
+            className="px-0 mt-16 sm:mt-20 gap-2 hover:bg-transparent hover:gap-3 duration-300"
+            variant={"ghost"}
+          >
+            <ArrowLeft strokeWidth={1.5} className="size-5" />
+            Back to home
+          </Button>
+        </Link>
+        <section className="mt-5">
+          {/* Specimen header */}
+          <div className="">
             <Badge variant={"outline"}>
               Your Archetype — scouted for{" "}
               <span className="capitalize">{location}</span>
@@ -103,7 +112,10 @@ export default function ResultsPage() {
                   <div className="size-6 rounded-full bg-foreground text-background flex justify-center items-center">
                     <CircleQuestionMark className="size-4" strokeWidth={2} />
                   </div>
-                  <SmallParagraph className="flex-1 text-sm 2xl:text-base" text={archetype.description} />
+                  <SmallParagraph
+                    className="flex-1 text-sm 2xl:text-base"
+                    text={archetype.description}
+                  />
                 </div>
               </div>
               <RadarChart vector={vector} />

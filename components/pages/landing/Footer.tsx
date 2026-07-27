@@ -6,8 +6,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer>
-      <LandingContainer className="bg-accent text-background">
+    <footer className="bg-accent text-background">
+      <LandingContainer className="">
         <div className="flex flex-col items-center gap-5">
           <Paragraph text="No account. No tracking. Nothing saved." />
           <Link href={"/quiz"}>

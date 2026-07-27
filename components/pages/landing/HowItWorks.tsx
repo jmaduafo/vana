@@ -27,30 +27,39 @@ function HowItWorks() {
     },
   ];
   return (
-    <LandingContainer className="bg-foreground text-background dark:bg-foreground dark:text-background">
-      <div className="flex flex-col gap-12">
-        <Badge className="capitalize" variant={"outlineAlt"}>How it works</Badge>
-        <div className="font-light flex flex-col md:flex-row justify-between gap-10">
-          {steps.map((step, i) => {
-            return (
-              <div key={step.title} className="flex flex-col gap-5 max-w-80">
-                <Paragraph
-                  className="uppercase opacity-60 "
-                  text={`step ${(i + 1).toString().padStart(2, "0")}`}
-                />
-                <div className="size-10 flex justify-center items-center rounded-full bg-background text-foreground">
-                  <step.icon className="size-6" strokeWidth={1} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Header6 className="font-medium" text={step.title} />
-                  <Paragraph className="" text={step.subtitle} />
-                </div>
-              </div>
-            );
-          })}
+    <div className="bg-foreground text-background dark:bg-foreground dark:text-background">
+      <LandingContainer className="">
+        <div className="flex justify-center">
+          <div className="flex flex-col gap-12">
+            <Badge className="capitalize" variant={"outlineAlt"}>
+              How it works
+            </Badge>
+            <div className="font-light flex flex-col md:flex-row justify-between gap-10">
+              {steps.map((step, i) => {
+                return (
+                  <div
+                    key={step.title}
+                    className="flex flex-col gap-5 max-w-80"
+                  >
+                    <Paragraph
+                      className="uppercase opacity-70 font-medium"
+                      text={`step ${(i + 1).toString().padStart(2, "0")}`}
+                    />
+                    <div className="size-10 flex justify-center items-center rounded-full bg-background text-foreground">
+                      <step.icon className="size-6" strokeWidth={1} />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <Header6 className="font-medium" text={step.title} />
+                      <Paragraph className="" text={step.subtitle} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </div>
-    </LandingContainer>
+      </LandingContainer>
+    </div>
   );
 }
 

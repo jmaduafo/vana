@@ -11,7 +11,7 @@ import React from "react";
 function Archetypes() {
   return (
     <LandingContainer>
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-12">
         <div className="flex flex-col gap-2">
           <Badge className="capitalize" variant={"outline"}>
             A few archetypes
