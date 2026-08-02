@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import { serifItalic, serif, logo } from "@/fonts/fonts";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen font-sans flex flex-col bg-background text-foreground dark:bg-background dark:text-foreground">
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );

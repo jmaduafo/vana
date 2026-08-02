@@ -16,6 +16,11 @@ import Header6 from "@/components/headings/Header6";
 import SmallParagraph from "@/components/headings/SmallParagraph";
 import Image from "next/image";
 import { ArrowLeft, CircleQuestionMark } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface StoredResults {
   vector: VibeVector;
@@ -73,7 +78,19 @@ export default function ResultsPage() {
   return (
     <div>
       <main className="min-h-screen max-w-4xl 2xl:max-w-7xl mx-auto px-8">
-        <Link href={"/"}>
+        {/* <Link href={"/"}>
+          <Button
+            className="px-0 mt-16 sm:mt-20 gap-2 hover:bg-transparent hover:gap-3 duration-300"
+            variant={"ghost"}
+          >
+            <ArrowLeft strokeWidth={1.5} className="size-5" />
+            Back to home
+          </Button>
+        </Link> */}
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Link href={"/"}>
           <Button
             className="px-0 mt-16 sm:mt-20 gap-2 hover:bg-transparent hover:gap-3 duration-300"
             variant={"ghost"}
@@ -82,6 +99,12 @@ export default function ResultsPage() {
             Back to home
           </Button>
         </Link>
+            }
+          />
+          <TooltipContent>
+            <SmallParagraph text="Results are saved and can be returned to later"/>
+          </TooltipContent>
+        </Tooltip>
         <section className="mt-5">
           {/* Specimen header */}
           <div className="">
